@@ -23,6 +23,7 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  // userAccessAssignments UserAccessAssignment[]
 }
 
 model MailingList {
@@ -38,3 +39,36 @@ model session {
 
   @@index([expire], map: "IDX_session_expire")
 }
+
+// model Company {
+//   id                    Int                    @id @default(autoincrement())
+//   createdAt             DateTime               @default(now())
+//   updatedAt             DateTime               @updatedAt
+//   name                  String
+//   plan                  String
+//   active                Boolean                @default(true)
+//   hasPaid               Boolean                @default(true)
+//   stripeCustomerId      String?
+//   stripePriceId         String?
+//   userAccessAssignments UserAccessAssignment[]
+// }
+
+// model UserAccessAssignment {
+//   id        Int        @id @default(autoincrement())
+//   createdAt DateTime   @default(now())
+//   updatedAt DateTime   @updatedAt
+//   companyId Int
+//   userId    Int
+//   role      AccessRole
+//   company   Company    @relation(fields: [companyId], references: [id])
+//   user      User       @relation(fields: [userId], references: [id])
+
+//   @@unique([userId, companyId])
+// }
+
+// enum AccessRole {
+//   owner
+//   admin
+//   user
+//   viewOnly
+// }

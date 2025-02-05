@@ -5,6 +5,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import Home from "./pages/Marketing/Home";
 
 const AppRoutes = React.lazy(() => import("./AppRoutes"))
 
@@ -25,7 +26,7 @@ function App() {
         <ScrollToTop />
         <Routes>
 
-          <Route exact path="/" element={<div className="text-center text-xl mt-6">Home page</div>} />
+          <Route exact path="/" element={<Home />} />
 
           <Route
             path="/app/*"

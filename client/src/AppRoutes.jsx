@@ -12,9 +12,12 @@ import ResetPassword from "./pages/ResetPassword";
 import { createPortal } from "react-dom";
 import ForgotPassword from "./pages/ForgotPassword";
 import useUserStore from "./state/user";
+import Overview from "./pages/Overview";
 
 function RequireAuth({ children, redirectTo }) {
   const currentUser = useUserStore(s => s.user)
+
+  return children;
 
   return !!currentUser
     ? children
@@ -43,6 +46,15 @@ const AppRoutes = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        <Route
+          path="/overview"
+          element={
+            <RequireAuth redirectTo="/login">
+              <Overview />
+            </RequireAuth>
+          }
+        />
 
         <Route
           path="/protected"

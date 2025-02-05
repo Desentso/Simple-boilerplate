@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import makeRequest from '../utils/requests';
 import { immerZustandMiddleware } from './state-helpers';
 

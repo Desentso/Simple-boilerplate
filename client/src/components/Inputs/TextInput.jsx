@@ -15,6 +15,8 @@
   ```
 */
 
+import React from "react";
+
 function makeid(length) {
   var result           = '';
   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -25,7 +27,7 @@ function makeid(length) {
   return result;
 }
 
-export default function TextInput({
+export default React.forwardRef(function TextInput({
   label,
   name,
   type = "text",
@@ -35,7 +37,7 @@ export default function TextInput({
   id = makeid(8),
   placeholder,
   error,
-}) {
+}, ref) {
 
   const _onChange = (e) => {
     onChange(e.target.value)
@@ -51,6 +53,7 @@ export default function TextInput({
       </label>
       <div className="mt-1">
         <input
+          ref={ref}
           type={type}
           name={name}
           onChange={_onChange}
@@ -67,4 +70,4 @@ export default function TextInput({
       {error && <p className="text-red-600">{error}</p>}
     </div>
   )
-}
+})

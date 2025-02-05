@@ -10,6 +10,7 @@ import {
   MapIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import { Button } from "../../components/Catalyst/button"
 
 const features = [
   {
@@ -81,7 +82,7 @@ function FlyoutMenu({name, sections}) {
                       to={item.href}
                       className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
                     >
-                      <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md text-primary sm:h-12 sm:w-12">
+                      <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md text-primary-500 sm:h-12 sm:w-12">
                         <item.icon className="h-7 w-7" aria-hidden="true" />
                       </div>
                       <div className="ml-4">
@@ -133,7 +134,7 @@ const Header = () => {
           <div className="flex items-center flex-1 lg:absolute lg:inset-y-0 lg:left-0">
             <div className="flex items-center justify-between w-full lg:w-auto">
               <Link to="/">
-                <p className='text-4xl font-semibold text-primary example-logo-font'>Example</p>
+                <p className='text-4xl font-semibold text-primary-500 example-logo-font'>Example</p>
               </Link>
               <div className="-mr-2 flex items-center lg:hidden">
                 <Popover.Button className="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -155,23 +156,9 @@ const Header = () => {
                   </Link>
             ))}
           </div>
-          <div className="hidden lg:absolute lg:flex lg:items-center lg:justify-end lg:inset-y-0 lg:right-0">
-            <span className="inline-flex rounded-md shadow">
-              <Link
-                to="/app/login"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:text-indigo-500"
-              >
-                Log in
-              </Link>
-            </span>
-            <span className="inline-flex rounded-md shadow ml-4">
-              <Link
-                to="/app/register"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-indigo-500"
-              >
-                Get started
-              </Link>
-            </span>
+          <div className="hidden lg:absolute lg:flex lg:items-center lg:justify-end lg:inset-y-0 lg:right-0 gap-2">
+            <Button color="blue" href="/app/login" outline>Log in</Button>
+            <Button color="blue" href="/app/register">Get Started</Button>
           </div>
         </nav>
       </div>
@@ -192,7 +179,7 @@ const Header = () => {
           <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div className="px-5 pt-4 flex items-center justify-between">
               <div>
-                <p className='text-4xl font-semibold text-primary example-logo-font'>Example</p>
+                <p className='text-4xl font-semibold text-primary-500 example-logo-font'>Example</p>
               </div>
               <div className="-mr-2">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -219,18 +206,8 @@ const Header = () => {
                   </Link>
               ))}
             </div>
-            <Link
-              to="/app/login"
-              className="block w-full px-5 py-3 text-center font-medium text-primary bg-gray-50 hover:bg-gray-100 hover:text-indigo-700"
-            >
-              Log in
-            </Link>
-            <Link
-              to="/app/register"
-              className="block w-full px-5 py-3 text-center font-medium text-white bg-primary hover:bg-indigo-700"
-            >
-              Get started
-            </Link>
+            <Button color="blue" href="/app/login" outline>Log in</Button>
+            <Button color="blue" href="/app/register">Get Started</Button>
           </div>
         </Popover.Panel>
       </Transition>
